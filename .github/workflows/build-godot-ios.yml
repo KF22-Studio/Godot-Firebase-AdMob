@@ -48,7 +48,7 @@ jobs:
         unzip ${{env.GODOT_VERSION}}-stable.zip
 
     - name: Copy godot firebase modifications
-      rund: |
+      run: |
         cp -r ${{github.workspace}}/godot-firebase/ ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/
 
     - name: Compiles the Source Code
