@@ -6,6 +6,7 @@ env:
   GODOT_VERSION: 3.2.3
   TAG_NAME: 3.2.3
   RELEASE_NAME: iOS compiled files for v3.2.3
+  ADMOB_MODULE: iOS_v3.0
 
 jobs:
 
@@ -56,6 +57,20 @@ jobs:
         curl -L https://firebase.google.com/download/ios -o ${{github.workspace}}/firebase.zip
         unzip ${{github.workspace}}/firebase.zip
         mv ${{github.workspace}}/Firebase ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/platform/iphone/
+
+    - name: Download AdMob module for godot
+      run: |
+        curl -LO https://github.com/Poing-Studios/Godot-AdMob-Android-iOS/archive/${{env.ADMOB_MODULE}}+.zip
+        unzip Godot-AdMob-Android-iOS-${{env.ADMOB_MODULE}}-.zip
+        mv Godot-AdMob-Android-iOS-${{env.ADMOB_MODULE}}-/ios/admob ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/modules/
+
+    - name: Download AdMob sdk
+      run: |
+        curl -LO https://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip
+        unzip googlemobileadssdkios.zip -d googlemobileadssdkios
+        cd googlemobileadssdkios
+        cd */
+        mv * ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/modules/admob/lib
 
     - name: Compiles the Source Code
       env:
