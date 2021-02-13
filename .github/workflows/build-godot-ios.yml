@@ -51,6 +51,12 @@ jobs:
       run: |
         cp -r ${{github.workspace}}/godot-firebase/ ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/
 
+    - name: Download firebase sdk
+      run: |
+        curl -L https://firebase.google.com/download/ios -o ${{github.workspace}}/firebase.zip
+        unzip ${{github.workspace}}/firebase.zip
+        cp -r ${{github.workspace}}/firebase/ ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/platform/iphone/firebase/
+
     - name: Compiles the Source Code
       env:
         SCONS_CACHE: ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/.scons_cache/

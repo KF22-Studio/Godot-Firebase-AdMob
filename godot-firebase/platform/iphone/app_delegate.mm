@@ -684,7 +684,7 @@ static int frame_count = 0;
 	[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:nil];
 
 	// Init firebase
-  [FIRApp configure];
+	[FIRApp configure];
 
 	return TRUE;
 };
