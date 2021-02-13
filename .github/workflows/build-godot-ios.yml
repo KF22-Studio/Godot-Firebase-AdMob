@@ -55,7 +55,7 @@ jobs:
       run: |
         curl -L https://firebase.google.com/download/ios -o ${{github.workspace}}/firebase.zip
         unzip ${{github.workspace}}/firebase.zip
-        mv ${{github.workspace}}/firebase ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/platform/iphone/firebase
+        mv ${{github.workspace}}/Firebase ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/platform/iphone/
 
     - name: Compiles the Source Code
       env:
