@@ -61,10 +61,12 @@ jobs:
       env:
         SCONS_CACHE: ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/.scons_cache/
       run: |
+        ls -l ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/platform/iphone
         cd godot-${{env.GODOT_VERSION}}-stable
         scons p=iphone tools=no target=release arch=arm
         scons p=iphone tools=no target=release arch=arm64
         lipo -create bin/libgodot.iphone.opt.arm.a bin/libgodot.iphone.opt.arm64.a -output bin/release/libgodot.iphone.release.fat.a
+
     - name: Compress the binaries
       run: |
         zip -j ios-template-v${{env.GODOT_VERSION}}.zip godot-${{env.GODOT_VERSION}}-stable/bin/release/*
