@@ -1,8 +1,6 @@
 name: Build iOS
 
-on:
-  push:
-    branches: [ master ]
+on: push
 
 env:
   GODOT_VERSION: 3.2.3
