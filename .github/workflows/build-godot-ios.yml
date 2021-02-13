@@ -66,7 +66,7 @@ jobs:
 
     - name: Download AdMob sdk
       run: |
-        curl -LO https://dl.google.com/googleadmobadssdk/googlemobileadssdkios.zip
+        curl -LO https://github.com/Poing-Studios/Godot-AdMob-Android-iOS/releases/download/${{env.ADMOB_MODULE}}%2B/googlemobileadssdkios.zip
         unzip googlemobileadssdkios.zip -d googlemobileadssdkios
         cd googlemobileadssdkios
         cd */
