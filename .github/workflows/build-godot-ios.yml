@@ -47,6 +47,10 @@ jobs:
         curl -LO $FULL_PATHNAME_DOWNLOAD_GODOT_SOURCE_CODE
         unzip ${{env.GODOT_VERSION}}-stable.zip
 
+    - name: Copy godot firebase modifications
+      rund: |
+        cp -r ${{github.workspace}}/godot-firebase/ ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/
+
     - name: Compiles the Source Code
       env:
         SCONS_CACHE: ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/.scons_cache/
