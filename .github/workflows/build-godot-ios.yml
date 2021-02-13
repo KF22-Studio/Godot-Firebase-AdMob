@@ -61,7 +61,7 @@ jobs:
     - name: Download AdMob module for godot
       run: |
         curl -LO https://github.com/Poing-Studios/Godot-AdMob-Android-iOS/archive/${{env.ADMOB_MODULE}}+.zip
-        unzip Godot-AdMob-Android-iOS-${{env.ADMOB_MODULE}}-.zip
+        unzip ${{env.ADMOB_MODULE}}+.zip
         mv Godot-AdMob-Android-iOS-${{env.ADMOB_MODULE}}-/ios/admob ${{github.workspace}}/godot-${{env.GODOT_VERSION}}-stable/modules/
 
     - name: Download AdMob sdk
