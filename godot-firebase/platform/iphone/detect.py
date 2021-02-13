@@ -219,7 +219,6 @@ def configure(env):
             "$IPHONESDK/usr/include",
             "$IPHONESDK/System/Library/Frameworks/OpenGLES.framework/Headers",
             "$IPHONESDK/System/Library/Frameworks/AudioUnit.framework/Headers",
-            "#platform/iphone/firebase/FirebaseAnalytics/FirebaseCore.xcframework/ios-arm64_armv7"
         ]
     )
 
@@ -227,3 +226,6 @@ def configure(env):
 
     env.Prepend(CPPPATH=["#platform/iphone"])
     env.Append(CPPDEFINES=["IPHONE_ENABLED", "UNIX_ENABLED", "GLES_ENABLED", "COREAUDIO_ENABLED"])
+
+    # Add paths to firebase sdk
+    env.Append(FRAMEWORKPATH=['#platform/iphone/FirebaseAnalytics/FirebaseCore.xcframework/ios-arm64_armv7'])
