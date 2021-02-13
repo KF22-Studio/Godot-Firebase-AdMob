@@ -228,4 +228,4 @@ def configure(env):
     env.Append(CPPDEFINES=["IPHONE_ENABLED", "UNIX_ENABLED", "GLES_ENABLED", "COREAUDIO_ENABLED"])
 
     # Add paths to firebase sdk
-    env.Append(FRAMEWORKPATH=['#platform/iphone/FirebaseAnalytics/FirebaseCore.xcframework/ios-arm64_armv7'])
+    env.Append(FRAMEWORKPATH=['#platform/iphone/Firebase/FirebaseAnalytics/FirebaseCore.xcframework/ios-arm64_armv7'])
